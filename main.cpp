@@ -30,6 +30,7 @@ int main() {
     assert(Version("1.7.9")   <= Version("3.1"));
     assert(Version("1.7.9")   <= Version("3"));
     assert(Version("1")       <= Version("1.7.9"));
+    assert(Version("1.7.9")   <= Version("1.7.9"));
 
     std::cout << "Ok!\n";
     return 0;
