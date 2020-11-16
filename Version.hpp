@@ -21,7 +21,7 @@ struct Version {
     }
 
     bool operator>(const Version& other) const {
-        return !operator<(other);
+        return GRETTER == compare(other);
     }
 
     bool operator==(const Version& other) const {
@@ -66,14 +66,9 @@ private:
         const auto& otherVersion = otherSize == maxSize ? other._version : completeByZeros(other._version, maxSize);
 
         for (std::size_t i = 0; i < maxSize; ++i) {
-            if (thisVersion[i] > otherVersion[i]) {
-                return GRETTER;
-            }
-            if (thisVersion[i] < otherVersion[i]) {
-                return LESS;
-            }
+            if (thisVersion[i] > otherVersion[i]) { return GRETTER; }
+            if (thisVersion[i] < otherVersion[i]) { return LESS;    }
         }
-
         return EQUAL;
     }
 
